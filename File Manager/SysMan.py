@@ -2,7 +2,7 @@ import os
 import sys
 import shutil
 
-import settings1 as sett
+import settings as sett
 
 sett.start()
 
@@ -113,21 +113,26 @@ def chpwd(dirName):
 
 def chpwdUp():
     try:
-        OS = sys.platform
-        if OS == 'darwin':
-            a = os.getcwd()
-            b = a.split('/')
-            del b[-1]
-            a = '/'.join([str(item) for item in b])
-            os.chdir(a)
-            print(os.getcwd())
+        z=os.getcwd()
+        if len(os.path.split(os.getcwd())[0]) >= len(z) or len(os.path.split(os.getcwd())[0]) + 1 >= len(z):
+            OS = sys.platform
+            if OS == 'darwin':
+                a = os.getcwd()
+                b = a.split('/')
+                del b[-1]
+                a = '/'.join([str(item) for item in b])
+                os.chdir(a)
+                print(os.getcwd())
 
-        elif OS == 'cygwin' or OS == 'win32':
-            a = os.getcwd()
-            b = a.split('\\')
-            del b[-1]
-            a='\\'.join([str(item) for item in b])
-            os.chdir(a)
+            elif OS == 'cygwin' or OS == 'win32':
+                a = os.getcwd()
+                b = a.split('\\')
+                del b[-1]
+                a='\\'.join([str(item) for item in b])
+                os.chdir(a)
+                print(os.getcwd())
+        else:
+            print("cant go further")
             print(os.getcwd())
     except:
         print('cant go up')
