@@ -32,8 +32,7 @@ def main():
     sock.setblocking(1)
     sock.connect(('localhost', 9092))
 
-    # Ksc = 101
-    Ksc = int(input('Enter your secret key (try 101):\n>'))
+    Ksc = int(input('Enter your secret key(from servkeys.csv):\n>'))
 
     data = sock.recv(1024).decode()
     data = data.split(' ')
