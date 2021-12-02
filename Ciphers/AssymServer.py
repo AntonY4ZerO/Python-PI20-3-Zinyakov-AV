@@ -82,7 +82,7 @@ def main():
 
         print("Total key is generated")
         K = total_key_gen(Kpc)
-        conn.send(cript("Welcome!", K).encode())
+        conn.send(cript("Welcome to this server!", K).encode())
 
         while True:
             try:
